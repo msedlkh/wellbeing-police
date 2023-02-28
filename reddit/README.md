@@ -10,3 +10,7 @@ To run:
 - python.exe reddit.py -q BipolarReddit -n 1000
 - python.exe reddit.py -q SuicideWatch -n 1000
 - python.exe reddit.py -q Anxiety -n 1000
+
+
+Note:
+Do not commit your credential.
