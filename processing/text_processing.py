@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import re
 import os
 import argparse 
@@ -36,27 +37,35 @@ def de_emojify(text):
         u"\u200b"
                            "]+", flags = re.UNICODE)
     try:
-        edited = regrex_pattern.sub(r'',text)
+        edited = regrex_pattern.sub(r' ',text)
     except:
-        # print("emoji: ",text)
+        print("emoji: ",text)
         edited = text
     return edited
 
 def remove_whitespace(text):
     try:
         edited = text.strip()
-        regex_pattern = re.compile(pattern= r"&#x200B;" "\n{1,}", flags=0)
-        edited = regex_pattern.sub(r'', edited)
+        edited = edited.lower()
+        regex_badchars = re.compile(pattern=r"(&#x200B;)|\\|\*+|\.{2,}|…|\S*https?:\S*|\s*@\S{2,}", flags=re.IGNORECASE)
+        regex_whitespace = re.compile(pattern=r" {2,}", flags=re.IGNORECASE)
+        regex_newline = re.compile(pattern="\n|\t", flags=re.IGNORECASE)
+        edited = regex_badchars.sub(r'', edited)
+        edited = regex_newline.sub(r' ', edited)
+        edited = regex_whitespace.sub(r' ', edited)
     except:
-        # print("whitespace: ",text)
+        print("whitespace: ",text)
         edited = text
     
     return edited
 
-def remove_emoticon(df):
-    df= df.map(lambda text: de_emojify(text))
+def process_data(df):
+    df.dropna(inplace = True)
+    df = df.map(lambda text: de_emojify(text))
     df = df.map(lambda text: remove_whitespace(text))
-    return df
+    df.replace('', np.nan, inplace=True)
+    df_out = df.dropna()
+    return df_out
 
 def save_output(df, append_name):
     today = date.today()
@@ -68,6 +77,6 @@ if __name__ == "__main__":
     #get body 
     posts = pd.read_csv(filename, encoding="utf-8")
     body = posts['body']
-    body_2 = remove_emoticon(body)
+    body_2 = process_data(body)
     print(body_2)
     save_output(body_2, "BipolarReddit_1000_body_noemoji")
