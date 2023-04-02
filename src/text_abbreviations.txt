@@ -15,7 +15,6 @@ TGIF: Thank goodness it’s Friday
 TBH: To be honest
 TBF: To be frank
 RN: Right now
-FUBAR: F***** up beyond all recognition
 BRB: Be right back
 ISO: In search of
 BRT: Be right there
@@ -25,7 +24,6 @@ GG: Good game
 BFD: Big freaking deal
 IRL: In real life
 DAE: Does anyone else?
-LOL: Laugh out loud
 SMH: Shaking my head
 NGL: Not gonna lie
 BTS: Behind the scenes
@@ -49,10 +47,8 @@ B4: Before
 BC: Because
 JIC: Just in case
 FOMO: Fear of missing out
-SNAFU: Situation normal, all f***** up
-GTG/G2G: Got to go
 H8: Hate
-LMAO: Laughing my a** off
+LMAO: Laughing my ass off
 IYKWIM: If you know what I mean
 MYOB: Mind your own business
 POV: Point of view
@@ -96,7 +92,6 @@ RT: Retweet
 TBT: Throwback Thursday
 TIL: Today I learned
 AMA: Ask me anything
-ELI5: Explain like I’m 5
 FBF: Flashback Friday
 MFW: My feeling when
 HMU: Hit me up
@@ -121,6 +116,4 @@ tmr: tomorrow
 yr: year
 yrs: years
 hr: hour
-med: medicine
-meds: medicines
 ppl: people
